@@ -12,3 +12,4 @@ dist/
 *-credentials.json
 *.pem
 *.key
+desktop.ini
