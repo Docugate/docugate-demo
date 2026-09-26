@@ -1,0 +1,99 @@
+:root {
+  --bg: #f7f7f5;
+  --surface: #ffffff;
+  --text: #1c1c1a;
+  --muted: #6b6b66;
+  --line: #e4e4df;
+  --accent: #2f5bea;
+  --ok: #1f7a4d;
+  --ok-bg: #e3f3ea;
+  --warn: #9a5b00;
+  --warn-bg: #fdf0da;
+  --bad: #b3261e;
+  --bad-bg: #fbe4e2;
+  --neutral-bg: #efefeb;
+  color-scheme: light;
+  font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111110;
+    --surface: #1a1a18;
+    --text: #ecece8;
+    --muted: #9a9a94;
+    --line: #2c2c29;
+    --accent: #7c9bff;
+    --ok: #6fd3a0;
+    --ok-bg: #16301f;
+    --warn: #f0b85a;
+    --warn-bg: #33270f;
+    --bad: #ff8a80;
+    --bad-bg: #3a1917;
+    --neutral-bg: #262624;
+    color-scheme: dark;
+  }
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.5; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+h1 { font-size: 22px; margin: 0 0 16px; }
+h2 { font-size: 15px; margin: 28px 0 10px; }
+
+.shell { display: grid; grid-template-columns: 200px 1fr; min-height: 100vh; }
+.nav { border-right: 1px solid var(--line); padding: 20px 12px; display: flex; flex-direction: column; gap: 2px; background: var(--surface); }
+.brand { font-weight: 700; font-size: 16px; padding: 0 10px 16px; }
+.nav a { color: var(--text); padding: 7px 10px; border-radius: 6px; }
+.nav a:hover { background: var(--neutral-bg); text-decoration: none; }
+.nav a.active { background: var(--neutral-bg); font-weight: 600; }
+.page { padding: 28px 32px; max-width: 1040px; min-width: 0; }
+
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px; }
+.tile-label { color: var(--muted); font-size: 12px; }
+.tile-value { font-size: 22px; font-weight: 650; font-variant-numeric: tabular-nums; }
+
+table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); }
+th { font-size: 12px; font-weight: 600; color: var(--muted); }
+tbody tr:last-child td { border-bottom: 0; }
+tfoot td { border-bottom: 0; border-top: 1px solid var(--line); }
+tfoot tr.total td { font-weight: 700; font-size: 15px; }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+
+.badge { display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 600; text-transform: capitalize; }
+.badge-paid { color: var(--ok); background: var(--ok-bg); }
+.badge-open { color: var(--warn); background: var(--warn-bg); }
+.badge-overdue { color: var(--bad); background: var(--bad-bg); }
+.badge-draft { color: var(--muted); background: var(--neutral-bg); }
+.plan { text-transform: capitalize; }
+
+.filters { display: flex; gap: 6px; margin-bottom: 14px; flex-wrap: wrap; }
+.filters button { border: 1px solid var(--line); background: var(--surface); color: var(--text); padding: 5px 12px; border-radius: 999px; cursor: pointer; text-transform: capitalize; font: inherit; }
+.filters button.active { background: var(--text); color: var(--bg); border-color: var(--text); }
+
+.crumbs { color: var(--muted); margin: 0 0 8px; }
+.invoice-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+.invoice-head p { margin: -10px 0 0; }
+.meta { display: flex; gap: 32px; margin: 18px 0; }
+.meta div { display: flex; flex-direction: column; }
+.meta dt { color: var(--muted); font-size: 12px; }
+.meta dd { margin: 0; }
+
+button.primary { margin-top: 16px; background: var(--accent); color: #fff; border: 0; padding: 9px 16px; border-radius: 8px; font: inherit; font-weight: 600; cursor: pointer; }
+button.primary:disabled { opacity: 0.6; cursor: default; }
+button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.muted { color: var(--muted); }
+.small { font-size: 12px; }
+.error { color: var(--bad); }
+
+@media (max-width: 720px) {
+  .shell { grid-template-columns: 1fr; }
+  .nav { flex-direction: row; align-items: center; border-right: 0; border-bottom: 1px solid var(--line); overflow-x: auto; }
+  .brand { padding: 0 10px 0 0; }
+  .page { padding: 20px 16px; }
+  table { display: block; overflow-x: auto; }
+}

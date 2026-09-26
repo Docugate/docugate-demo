@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.vercel/
+*.log
+.DS_Store
+
+# Credentials: never commit these
+.env
+.env.*
+!.env.example
+*.env
+*-credentials.json
+*.pem
+*.key
