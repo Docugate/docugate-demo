@@ -13,3 +13,5 @@ dist/
 *.pem
 *.key
 desktop.ini
+.vercel
+.env*
