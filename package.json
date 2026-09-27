@@ -11,10 +11,12 @@
   "scripts": {
     "dev": "concurrently -n backend,frontend -c blue,green \"npm run dev -w backend\" \"npm run dev -w frontend\"",
     "build": "npm run build -w frontend",
+    "tour:static": "node scripts/static-tour.mjs",
     "typecheck": "npm run typecheck -w backend && npm run typecheck -w frontend"
   },
   "dependencies": {
     "@hono/node-server": "^2.1.1",
+    "docugate": "^0.2.1",
     "hono": "^4.13.9"
   },
   "devDependencies": {

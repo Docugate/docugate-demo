@@ -11,5 +11,8 @@
     <!-- docugate:pill -->
     <script>if(location.hostname==='localhost'||location.hostname==='127.0.0.1'){var s=document.createElement('script');s.src='http://localhost:4178/pill.js';document.head.appendChild(s)}</script>
     <!-- /docugate:pill -->
+    <!-- Hosted demo only: no tour server runs there, so the pill reads the tour
+         exported by `npm run tour:static` instead, and cannot edit it. -->
+    <script>if(location.hostname!=='localhost'&&location.hostname!=='127.0.0.1'){fetch('/tour.json').then(function(r){return r.json()}).then(function(t){window.DOCUGATE_TOUR=t;var s=document.createElement('script');s.src='/pill.js';document.head.appendChild(s)})}</script>
   </body>
 </html>
